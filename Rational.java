@@ -1,12 +1,12 @@
-//Team Umm - Jannie Li, Denis Duman
-//APCS1 pd10
-//HW#32 -- Irrationality Stops Here
-//2015-11-17
+// Team Umm - Jannie Li, Denis Duman
+// APCS1 pd10
+// HW32 -- Irrationality Stops Here
+// 2015-11-17
 
 public class Rational{
 	
 	//====================Instance Vars=========================//	
-	protected int numerator, denominator;
+	private int numerator, denominator;
 	
 	
 	
@@ -17,9 +17,10 @@ public class Rational{
 	}
 	
 	public Rational(int p, int q){
-		if (q == 0){		
-			numerator = 0;
-			denominator = 1;
+	    this();
+
+		if (q == 0){
+		    System.out.print("invalid denominator; set to 0/1");
 		}
 		else {
 			numerator = p;
@@ -30,11 +31,11 @@ public class Rational{
 	
 	
 	//======================Accessors============================//
-	public int getNum(){
+	public int getNumerator(){
 		return numerator;
 	}
 	
-	public int getDen(){
+	public int getDenominator(){
 		return denominator;
 	}
 	
@@ -50,15 +51,16 @@ public class Rational{
 		return (double)numerator/denominator;
 	}
 
-	public void multipy(Rational x){
-		numerator *= x.getNum();
-		denominator *= x.getDen();
+	public void multiply(Rational x){
+		numerator *= x.getNumerator();
+		denominator *= x.getDenominator();
 	}
 	
 	public void divide(Rational x){
-		numerator /= x.getNum();
-		denominator /= x.getDen();
+		numerator /= x.getNumerator();
+		denominator /= x.getDenominator();
 	}
+
 }
 	
 		
