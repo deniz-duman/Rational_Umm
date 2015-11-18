@@ -4,8 +4,11 @@
 //2015-11-17
 
 public class Rational{
+	
 	//====================Instance Vars=========================//	
 	protected int numerator, denominator;
+	
+	
 	
 	//====================Constructors==========================//
 	public Rational(){
@@ -24,6 +27,8 @@ public class Rational{
 		}
 	}
 	
+	
+	
 	//======================Accessors============================//
 	public int getNum(){
 		return numerator;
@@ -32,6 +37,9 @@ public class Rational{
 	public int getDen(){
 		return denominator;
 	}
+	
+	
+	
 	
 	//======================Methods============================//
 	public String toString(){
