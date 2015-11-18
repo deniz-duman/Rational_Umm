@@ -5,61 +5,61 @@
 
 public class Rational{
 	
-	//====================Instance Vars=========================//	
-	private int numerator, denominator;
+    //====================Instance Vars=========================//	
+    private int numerator, denominator;
 	
 	
 	
-	//====================Constructors==========================//
-	public Rational(){
-		numerator = 0;
-		denominator = 1;
-	}
+    //====================Constructors==========================//
+    public Rational(){
+	numerator = 0;
+	denominator = 1;
+    }
 	
-	public Rational(int p, int q){
-	    this();
+    public Rational(int p, int q){
+	this();
 
-		if (q == 0){
-		    System.out.print("invalid denominator; set to 0/1");
-		}
-		else {
-			numerator = p;
-			denominator = q;
-		}
+	if (q == 0){
+	    System.out.print("invalid denominator; set to 0/1");
 	}
-	
-	
-	
-	//======================Accessors============================//
-	public int getNumerator(){
-		return numerator;
+	else {
+	    numerator = p;
+	    denominator = q;
 	}
-	
-	public int getDenominator(){
-		return denominator;
-	}
+    }
 	
 	
 	
+    //======================Accessors============================//
+    public int getNumerator(){
+	return numerator;
+    }
 	
-	//======================Methods============================//
-	public String toString(){
-		return numerator + "/" + denominator;
-	}
+    public int getDenominator(){
+	return denominator;
+    }
 	
-	public double floatValue(){
-		return (double)numerator/denominator;
-	}
+	
+	
+	
+    //======================Methods============================//
+    public String toString(){
+	return numerator + "/" + denominator;
+    }
+	
+    public double floatValue(){
+	return (double)numerator/denominator;
+    }
 
-	public void multiply(Rational x){
-		numerator *= x.getNumerator();
-		denominator *= x.getDenominator();
-	}
+    public void multiply(Rational x){
+	numerator *= x.getNumerator();
+	denominator *= x.getDenominator();
+    }
 	
-	public void divide(Rational x){
-		numerator /= x.getNumerator();
-		denominator /= x.getDenominator();
-	}
+    public void divide(Rational x){
+	numerator /= x.getNumerator();
+	denominator /= x.getDenominator();
+    }
 
 }
 	
