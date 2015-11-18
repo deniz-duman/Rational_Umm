@@ -8,15 +8,13 @@ public class Rational{
     //====================Instance Vars=========================//	
     private int numerator, denominator;
 	
-	
-	
     //====================Constructors==========================//
-    public Rational(){
+    public static Rational(){
 	numerator = 0;
 	denominator = 1;
     }
 	
-    public Rational(int p, int q){
+    public static Rational(int p, int q){
 	this();
 
 	if (q == 0){
@@ -31,34 +29,60 @@ public class Rational{
 	
 	
     //======================Accessors============================//
-    public int getNumerator(){
+    public static int getNumerator(){
 	return numerator;
     }
 	
-    public int getDenominator(){
+    public static int getDenominator(){
 	return denominator;
     }
+    
+    //========================Mutators========================//
+    public static void setNumerator(int x){
+	numerator = x;
+    }
 	
-	
-	
+    public static void setDenomiator(int x){
+	denominator = x;
+    }	
 	
     //======================Methods============================//
-    public String toString(){
+    public static String toString(){
 	return numerator + "/" + denominator;
     }
 	
-    public double floatValue(){
+    public static double floatValue(){
 	return (double)numerator/denominator;
     }
 
-    public void multiply(Rational x){
+    public static void multiply(Rational x){
 	numerator *= x.getNumerator();
 	denominator *= x.getDenominator();
     }
 	
-    public void divide(Rational x){
+    public static void divide(Rational x){
 	numerator /= x.getNumerator();
 	denominator /= x.getDenominator();
+    }
+    
+    public static int gcd(){
+    	int a = numerator, b = denominator;
+        if(a < 0 || b < 0) return -1;
+        while (b != 0) {
+            int num = b;
+            b = a % b;
+            a = num;
+        }
+        return a;
+    }
+    	
+    public static void add(Rational x){
+	int oldDen = denominator;
+	denominator *= x.getDenominator();
+	numerator *= x.getDenominator();
+	x.setDenominator(oldDen * x.getDenominator());
+	x.setNumerator(oldDen * x.getDenominator());
+	numerator += x.getNumerator();
     }
     
     public static void main(String[] args) {
