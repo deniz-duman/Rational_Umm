@@ -54,21 +54,21 @@ public class Rational{
 	
     }
 	
-    public double floatValue(){
+    public double floatValue(){//Finds a float value of this rational object
 	return (double)numerator/denominator;
     }
 
-    public void multiply(Rational x){
+    public void multiply(Rational x){//Multiplys a rational object with this rational object
 	numerator *= x.getNumerator();
 	denominator *= x.getDenominator();
     }
 	
-    public void divide(Rational x){
+    public void divide(Rational x){//Divides this rational object by a rational object
 	numerator /= x.getNumerator();
 	denominator /= x.getDenominator();
     }
     
-    public int gcd(){
+    public int gcd(){//Finds the greatest common divisor of the numerator and divisor
     	int a = numerator, b = denominator;
         if(a < 0 || b < 0) return -1;
         while (b != 0) {
@@ -79,7 +79,7 @@ public class Rational{
         return a;
     }
     	
-    public void add(Rational x){
+    public void add(Rational x){//Adds a rational object to this rational object
 	int oldDen = denominator;
 	denominator *= x.getDenominator();
 	numerator *= x.getDenominator();
@@ -87,7 +87,7 @@ public class Rational{
 	x.setNumerator(oldDen * x.getNumerator());
 	numerator += x.getNumerator();
     }
-    public void subtract(Rational x){
+    public void subtract(Rational x){//Subtracts a rational object from this rational object
 	int oldDen = denominator;
 	denominator *= x.getDenominator();
 	numerator *= x.getDenominator();
@@ -95,12 +95,12 @@ public class Rational{
 	x.setNumerator(oldDen * x.getNumerator());
 	numerator -= x.getNumerator();
     }
-    public void reduce(){
+    public void reduce(){//Reduces rational number by its gcd
 	int gcd = gcd();
 	numerator /= gcd;
 	denominator /=gcd;
     }
-    public static int gcd(int n, int d){
+    public static int gcd(int n, int d){//Find the greatest common divisor of two inputs
 	int a = n, b = d;
         if(a < 0 || b < 0) return -1;
         while (b != 0) {
@@ -110,7 +110,7 @@ public class Rational{
         }
         return a;
     }
-    public int compareTo(Rational x){
+    public int compareTo(Rational x){//Compares magnitudes of two rational objects.
 	double thisOne = numerator / denominator;
 	double thatOne = x.getNumerator() / x.getDenominator();
 	if (thisOne == thatOne){
@@ -124,7 +124,7 @@ public class Rational{
 	}
     }
 	
-    
+    //==========================================Main Method=============================================//
     public static void main(String[] args) {
 	Rational sleep = new Rational();
 	Rational dream = new Rational(1,2);
