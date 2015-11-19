@@ -1,7 +1,7 @@
-// Team Umm - Jannie Li, Denis Duman
+// Team Umm - Bayle Smith-Salzberg, Denis Duman
 // APCS1 pd10
-// HW32 -- Irrationality Stops Here
-// 2015-11-17
+// HW33 -- Do You Even Add, Bro?
+// 2015-11-18
 
 public class Rational{
 	
