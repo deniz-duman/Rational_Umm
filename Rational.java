@@ -7,6 +7,7 @@ public class Rational{
 	
     //====================Instance Vars=========================//	
     private int numerator, denominator;
+    private String msg = "";
 	
     //====================Constructors==========================//
     public Rational(){
@@ -15,10 +16,10 @@ public class Rational{
     }
 	
     public Rational(int p, int q){
-	this();
-
 	if (q == 0){
-	    System.out.println("invalid denominator; set to 0/1");
+	    msg = "invalid denominator; set to 0/1 \t";
+	    numerator = 0;
+	    denominator = 1;
 	}
 	else {
 	    numerator = p;
@@ -48,7 +49,9 @@ public class Rational{
 	
     //======================Methods============================//
     public String toString(){
-	return numerator + "/" + denominator;
+	return msg +
+	    numerator + "/" + denominator;
+	
     }
 	
     public double floatValue(){
@@ -81,7 +84,7 @@ public class Rational{
 	denominator *= x.getDenominator();
 	numerator *= x.getDenominator();
 	x.setDenominator(oldDen * x.getDenominator());
-	x.setNumerator(oldDen * x.getDenominator());
+	x.setNumerator(oldDen * x.getNumerator());
 	numerator += x.getNumerator();
     }
     public void subtract(Rational x){
@@ -89,19 +92,25 @@ public class Rational{
 	denominator *= x.getDenominator();
 	numerator *= x.getDenominator();
 	x.setDenominator(oldDen * x.getDenominator());
-	x.setNumerator(oldDen * x.getDenominator());
+	x.setNumerator(oldDen * x.getNumerator());
 	numerator -= x.getNumerator();
+    }
+    public void reduce(){
+	int gcd = gcd();
+	numerator /= gcd;
+	denominator /=gcd;
     }
     
     public static void main(String[] args) {
 	Rational sleep = new Rational();
 	Rational dream = new Rational(1,2);
 	Rational inval = new Rational(2,0);
+	Rational bayle = new Rational(5,4);
+	Rational other = new Rational (6,3);
 
 	System.out.println(sleep);
 	System.out.println(dream);
 	System.out.println(inval);
-	System.out.println(inval.numerator);
 
 	System.out.println(sleep.floatValue());
 	System.out.println(dream.floatValue());
@@ -113,7 +122,12 @@ public class Rational{
 	dream.multiply(inval);
 	System.out.println(dream);
 
-	sleep.multiply(dream);
+	other.reduce();
+	System.out.println(other);
+
+	bayle.subtract(other);
+	System.out.println(bayle);
+
     }
 }
 
