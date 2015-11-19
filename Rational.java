@@ -9,12 +9,12 @@ public class Rational{
     private int numerator, denominator;
 	
     //====================Constructors==========================//
-    public static Rational(){
+    public Rational(){
 	numerator = 0;
 	denominator = 1;
     }
 	
-    public static Rational(int p, int q){
+    public Rational(int p, int q){
 	this();
 
 	if (q == 0){
@@ -83,6 +83,14 @@ public class Rational{
 	x.setDenominator(oldDen * x.getDenominator());
 	x.setNumerator(oldDen * x.getDenominator());
 	numerator += x.getNumerator();
+    }
+    public static void subtract(Rational x){
+	int oldDen = denominator;
+	denominator *= x.getDenominator();
+	numerator *= x.getDenominator();
+	x.setDenominator(oldDen * x.getDenominator());
+	x.setNumerator(oldDen * x.getDenominator());
+	numerator -= x.getNumerator();
     }
     
     public static void main(String[] args) {
