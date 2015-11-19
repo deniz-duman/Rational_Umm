@@ -18,7 +18,7 @@ public class Rational{
 	this();
 
 	if (q == 0){
-	    System.out.print("invalid denominator; set to 0/1");
+	    System.out.println("invalid denominator; set to 0/1");
 	}
 	else {
 	    numerator = p;
@@ -29,43 +29,43 @@ public class Rational{
 	
 	
     //======================Accessors============================//
-    public static int getNumerator(){
+    public int getNumerator(){
 	return numerator;
     }
 	
-    public static int getDenominator(){
+    public int getDenominator(){
 	return denominator;
     }
     
     //========================Mutators========================//
-    public static void setNumerator(int x){
+    public void setNumerator(int x){
 	numerator = x;
     }
 	
-    public static void setDenomiator(int x){
+    public void setDenominator(int x){
 	denominator = x;
     }	
 	
     //======================Methods============================//
-    public static String toString(){
+    public String toString(){
 	return numerator + "/" + denominator;
     }
 	
-    public static double floatValue(){
+    public double floatValue(){
 	return (double)numerator/denominator;
     }
 
-    public static void multiply(Rational x){
+    public void multiply(Rational x){
 	numerator *= x.getNumerator();
 	denominator *= x.getDenominator();
     }
 	
-    public static void divide(Rational x){
+    public void divide(Rational x){
 	numerator /= x.getNumerator();
 	denominator /= x.getDenominator();
     }
     
-    public static int gcd(){
+    public int gcd(){
     	int a = numerator, b = denominator;
         if(a < 0 || b < 0) return -1;
         while (b != 0) {
@@ -76,7 +76,7 @@ public class Rational{
         return a;
     }
     	
-    public static void add(Rational x){
+    public void add(Rational x){
 	int oldDen = denominator;
 	denominator *= x.getDenominator();
 	numerator *= x.getDenominator();
@@ -84,7 +84,7 @@ public class Rational{
 	x.setNumerator(oldDen * x.getDenominator());
 	numerator += x.getNumerator();
     }
-    public static void subtract(Rational x){
+    public void subtract(Rational x){
 	int oldDen = denominator;
 	denominator *= x.getDenominator();
 	numerator *= x.getDenominator();
@@ -96,11 +96,12 @@ public class Rational{
     public static void main(String[] args) {
 	Rational sleep = new Rational();
 	Rational dream = new Rational(1,2);
-	Rational inval = new Rational(1,0);
+	Rational inval = new Rational(2,0);
 
 	System.out.println(sleep);
 	System.out.println(dream);
 	System.out.println(inval);
+	System.out.println(inval.numerator);
 
 	System.out.println(sleep.floatValue());
 	System.out.println(dream.floatValue());
@@ -114,7 +115,7 @@ public class Rational{
 
 	sleep.multiply(dream);
     }
-
 }
+
 	
 		
