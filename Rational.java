@@ -100,6 +100,30 @@ public class Rational{
 	numerator /= gcd;
 	denominator /=gcd;
     }
+    public static int gcd(int n, int d){
+	int a = n, b = d;
+        if(a < 0 || b < 0) return -1;
+        while (b != 0) {
+            int num = b;
+            b = a % b;
+            a = num;
+        }
+        return a;
+    }
+    public int compareTo(Rational x){
+	double thisOne = numerator / denominator;
+	double thatOne = x.getNumerator() / x.getDenominator();
+	if (thisOne == thatOne){
+	    return 0;
+	}
+	if (thisOne > thatOne){
+	    return 1;
+	}
+	else {
+	    return -1;
+	}
+    }
+	
     
     public static void main(String[] args) {
 	Rational sleep = new Rational();
@@ -127,6 +151,20 @@ public class Rational{
 
 	bayle.subtract(other);
 	System.out.println(bayle);
+
+	System.out.println (gcd(39, 13));
+
+	Rational big = new Rational(35,4);
+	Rational small = new Rational(1,4);
+
+	System.out.println(big.compareTo(small));
+	System.out.println(small.compareTo(big));
+
+	Rational same = new Rational(1,4);
+	Rational samez = new Rational(1,4);
+
+	System.out.println(same.compareTo(samez));
+	System.out.println(samez.compareTo(same));
 
     }
 }
