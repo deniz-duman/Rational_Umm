@@ -1,7 +1,7 @@
-// Team Umm - Bayle Smith-Salzberg, Denis Duman
+// Team Umm - Vincent Liok, Denis Duman
 // APCS1 pd10
-// HW33 -- Do You Even Add, Bro?
-// 2015-11-18
+// HW37 -- Rational Equality
+// 2015-11-24
 
 public class Rational{
 	
@@ -123,6 +123,21 @@ public class Rational{
 	    return -1;
 	}
     }
+    public boolean equals(Object o){(Rational)
+    	boolean retVal = this == o;
+    	if (!retVal){
+    		if (o instanceof Rational){
+    			reduce(this);
+    			reduce(o);
+    			retVal = this.numerator.equals(o.getNumerator());
+    			&& this.numerator.equals(o.getNumerator());
+    			return retVal;
+    		}
+    		else retval = false;
+    	}
+    	else return retVal;
+    }
+}
 	
     //==========================================Main Method=============================================//
     public static void main(String[] args) {
@@ -165,7 +180,12 @@ public class Rational{
 
 	System.out.println(same.compareTo(samez));
 	System.out.println(samez.compareTo(same));
-
+	
+	Rational woo = new Rational(2,3);
+	Rational woop = new Rational(12,18);
+	
+	System.out.println(woop.equals(woo));
+	System.out.println(woo.equals(woop));
     }
 }
 
