@@ -123,22 +123,22 @@ public class Rational{
 	    return -1;
 	}
     }
-    public boolean equals(Object o){(Rational)
+    public boolean equals(Object o){//Override equals method
     	boolean retVal = this == o;
     	if (!retVal){
-    		if (o instanceof Rational){
-    			reduce(this);
-    			reduce(o);
-    			retVal = this.numerator.equals(o.getNumerator());
-    			&& this.numerator.equals(o.getNumerator());
-    			return retVal;
-    		}
-    		else retval = false;
-    	}
-    	else return retVal;
+	    if (o instanceof Rational){
+		reduce();
+		((Rational)o).reduce();
+		retVal = this.numerator == ((Rational)o).getNumerator()
+		    && this.denominator == ((Rational)o).getDenominator();
+		return retVal;
+	    }
+	    else {retVal = false;}
+	}
+    	return retVal;
     }
-}
-	
+    
+
     //==========================================Main Method=============================================//
     public static void main(String[] args) {
 	Rational sleep = new Rational();
