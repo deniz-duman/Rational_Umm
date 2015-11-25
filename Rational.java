@@ -186,6 +186,18 @@ public class Rational{
 	
 	System.out.println(woop.equals(woo));
 	System.out.println(woo.equals(woop));
+
+	Rational rawr = new Rational(2,3);
+	Rational meow = new Rational(12,19);
+
+	System.out.println(rawr.equals(meow));
+	System.out.println(meow.equals(rawr));
+	
+	String foo = new String("blarg");
+	Rational boo = new Rational(2,3);
+	
+	System.out.println(foo.equals(boo));
+	System.out.println(boo.equals(foo));
     }
 }
 
